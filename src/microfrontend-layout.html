@@ -1,0 +1,32 @@
+<single-spa-router mode="hash">
+  <!--
+
+    This is the single-spa Layout Definition for your microfrontends.
+    See https://single-spa.js.org/docs/layout-definition/ for more information.
+
+  -->
+
+  <!-- Example layouts you might find helpful:
+
+  <nav>
+    <application name="@org/navbar"></application>
+  </nav>
+  <route path="settings">
+    <application name="@org/settings"></application>
+  </route>
+
+  -->
+  <p>
+    <a href="/#/one">app-one</a>
+    <a href="/#/">app-two</a>
+  </p>
+
+  <main style="display: grid; grid-template-columns: repeat(2, 1fr);">
+    <route path="one">
+      <application name="@app/app-one"></application>
+    </route>
+    <route default>
+      <application name="@app/app-two"></application>
+    </route>
+  </main>
+</single-spa-router>
