@@ -2,6 +2,9 @@
   "imports": {
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.1/lib/system/single-spa.min.js",
     "vue": "https://cdn.jsdelivr.net/npm/vue@3.0.0/dist/vue.js",
-    "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js"
+    "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js",
+    "axios": "https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js",
+    "quasar": "https://cdn.jsdelivr.net/npm/quasar@1.14.7/dist/quasar.common.min.js",
+    "quasar-lang": "https://cdn.jsdelivr.net/npm/quasar@2.7.1/dist/lang/fa-IR.umd.prod.js"
   }
 }

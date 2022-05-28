@@ -14,6 +14,7 @@ module.exports = (webpackConfigEnv, argv, env) => {
   });
   return merge(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
+    entry: path.resolve(__dirname, "src/app-root-config"),
     plugins: [
       new HtmlWebpackPlugin({
         inject: false,

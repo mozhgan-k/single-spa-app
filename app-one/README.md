@@ -1,24 +1,24 @@
-# app-one
+# Quasar App (app-one)
 
-## Project setup
-```
-yarn install
-```
+A Quasar Project
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
+## Install the dependencies
+```bash
+yarn
+# or
+npm install
 ```
 
-### Lints and fixes files
-```
-yarn lint
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).

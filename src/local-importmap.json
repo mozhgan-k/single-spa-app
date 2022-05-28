@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "app-one": "http://localhost:8080/app.js",
-    "app-two": "http://localhost:8081/app.js"
-  }
-}

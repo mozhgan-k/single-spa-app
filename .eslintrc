@@ -1,4 +1,10 @@
 {
-  "extends": ["important-stuff", "plugin:prettier/recommended"],
-  "parser": "@babel/eslint-parser"
+  "extends": [
+    "important-stuff",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "node": true
+  }
 }
