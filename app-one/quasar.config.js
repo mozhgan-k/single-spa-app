@@ -5,10 +5,10 @@ const { configure } = require("quasar/wrappers");
 const { LocalStorage } = require("quasar");
 const path = require("path");
 const cors = require("cors");
-// const SystemJSPublicPathWebpackPlugin = require('systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin')
-// function resolve (...dirs) {
-//   return path.join(__dirname, ...dirs)
-// }
+const SystemJSPublicPathWebpackPlugin = require('systemjs-webpack-interop/SystemJSPublicPathWebpackPlugin')
+function resolve (...dirs) {
+  return path.join(__dirname, ...dirs)
+}
 module.exports = configure(function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
@@ -48,16 +48,15 @@ module.exports = configure(function (ctx) {
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
       // transpileDependencies: [],
-      // chainWebpack (chain) {
-      //   chain.entry('app').add(resolve('src', 'single-spa-entry.js')) // This is the magic to make quasar work with single-spa
-      // },
+      extendWebpack(chain) {
+        chain.entry('app').add(resolve('src', 'single-spa-entry.js'))
+      },
       extendWebpackWebserver(cfg) {
         // cfg.plugins.push(new SystemJSPublicPathWebpackPlugin({ systemjsModuleName: name }));
         cfg.output = {
           library: `${name}-[name]`,
-          libraryTarget: "system",
+          libraryTarget: "umd",
           jsonpFunction: `webpackJsonp_${name}`,
-          filename: "spa/js/app.js",
         };
         cfg.devServer.headers = {
           "Access-Control-Allow-Origin": "*",
@@ -66,6 +65,16 @@ module.exports = configure(function (ctx) {
           "Access-Control-Allow-Headers":
             "X-Requested-With, content-type, Authorization",
         };
+        cfg.plugins.push(new SystemJSPublicPathWebpackPlugin({ systemjsModuleName: name }))
+        cfg.externals = [ // [OPTIONAL] Dependencies that will be provided by the container
+          'quasar',
+          '@quasar/extras',
+          'vue',
+          'vue-router',
+          'core-js',
+          'axios',
+          'single-spa-vue'
+        ]
       },
       rtl: true,
       preloadChunks: true,

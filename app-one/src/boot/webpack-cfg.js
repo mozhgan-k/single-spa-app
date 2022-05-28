@@ -2,8 +2,9 @@
 module.exports = {
   configureWebpack: {
     output: {
-      libraryTarget: "system",
-      filename: "js/app.js"
-    }
+      libraryTarget: "umd",
+      filename: "spa/js/app.js"
+    },
+    entry: '../single-spa-entry.js'
   },
 }
