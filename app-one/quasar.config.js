@@ -48,9 +48,9 @@ module.exports = configure(function (ctx) {
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
       // transpileDependencies: [],
-      extendWebpack(chain) {
-        chain.entry('app').add(resolve('src', 'single-spa-entry.js'))
-      },
+      // extendWebpack(chain) {
+      //   chain.entry('app').add(resolve('src', 'single-spa-entry.js'))
+      // },
       extendWebpackWebserver(cfg) {
         // cfg.plugins.push(new SystemJSPublicPathWebpackPlugin({ systemjsModuleName: name }));
         cfg.output = {
